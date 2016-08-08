@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="fits_windows" format="boolean"/>
+    <attr name="themePrimary" format="reference|color"></attr>
+    <attr name="themePrimaryDark" format="reference|color"></attr>
+
+    <attr name="toolbar_Text_Color" format="color"/>
+    <attr name="toolbar_Background_Color" format="color"/>
+    <attr name="toolbar_Menu_Text_Color" format="color"/>
+
+    <attr name="main_item_background" format="color"/>
+
+    <!--flat样式的TextView-->
+    <attr name="flat_text" format="reference|color"/>
+
+    <declare-styleable name="SwipeBackLayout">
+        <attr name="edge_size" format="dimension"/>
+        <attr name="edge_flag">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+            <enum name="bottom" value="2" />
+            <enum name="all" value="3" />
+        </attr>
+        <attr name="shadow_left" format="reference"/>
+        <attr name="shadow_right" format="reference"/>
+        <attr name="shadow_bottom" format="reference"/>
+    </declare-styleable>
+
+    <attr name="SwipeBackLayoutStyle" format="reference"/>
+</resources>

@@ -1,0 +1,36 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="comm_v_margin">16dp</dimen>
+
+    <dimen name="sp_14">14sp</dimen><!--标准字体（正文/按钮文字）-->
+    <dimen name="sp_16">16sp</dimen><!--小标题-->
+    <dimen name="sp_20">20sp</dimen><!--Appbar文字-->
+    <dimen name="sp_24">24sp</dimen><!--大标题-->
+    <!--34sp/45sp/56sp/112sp 超大号文字-->
+    <dimen name="sp_34">34sp</dimen>
+    <dimen name="sp_45">45sp</dimen>
+    <dimen name="sp_56">56sp</dimen>
+    <dimen name="sp_112">112sp</dimen>
+
+    <!--常见尺寸与距离
+    所有可操作元素最小点击区域尺寸：48dp X 48dp
+    栅格系统的最小单位是8dp，一切距离、尺寸都应该是8dp的整数倍
+    顶部状态栏高度：24dp
+    Appbar最小高度：56dp
+    底部导航栏高度：48dp
+    悬浮按钮尺寸：56x56dp/40x40dp
+    用户头像尺寸：64x64dp/40x40dp
+    小图标点击区域：48x48dp
+    侧边抽屉到屏幕右边的距离：56dp
+    卡片间距：8dp
+    分隔线上下留白：8dp
+    大多元素的留白距离：16dp
+    屏幕左右对齐基线：16dp
+    文字左侧对齐基线：72dp
+    -->
+</resources>

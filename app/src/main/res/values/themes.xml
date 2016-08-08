@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">?attr/themePrimary</item>
+        <item name="colorPrimaryDark">?attr/themePrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="fits_windows">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="AppBaseTheme" parent="BaseTheme">
+        <item name="android:selectableItemBackground">@drawable/selector_list_holo</item>
+        <item name="android:actionBarDivider">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="themePrimary">@color/colorPrimary</item>
+        <item name="themePrimaryDark">@color/colorPrimaryDark</item>
+        <item name="main_item_background">@color/main_item_background_Day</item>
+        <item name="toolbar_Menu_Text_Color">@color/toolbar_Menu_Text_Color_Day</item>
+        <item name="toolbar_Text_Color">@color/toolbar_Text_Color_Day</item>
+    </style>
+
+    <style name="AppNoActionBar" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="CollapsingToolbarTitleStyle.About" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@android:color/transparent</item>
+    </style>
+</resources>
