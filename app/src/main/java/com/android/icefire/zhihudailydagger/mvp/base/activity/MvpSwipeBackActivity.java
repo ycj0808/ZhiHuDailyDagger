@@ -3,6 +3,9 @@ package com.android.icefire.zhihudailydagger.mvp.base.activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
+import com.android.icefire.zhihudailydagger.mvp.base.di.ActivityModule;
+import com.android.icefire.zhihudailydagger.mvp.base.di.BaseMvpComponent;
+import com.android.icefire.zhihudailydagger.mvp.base.di.HasComponent;
 import com.android.icefire.zhihudailydagger.support.swipeback.SwipeBackActivity;
 import com.hannesdorfmann.mosby.mvp.MvpPresenter;
 import com.hannesdorfmann.mosby.mvp.MvpView;
@@ -14,14 +17,15 @@ import com.hannesdorfmann.mosby.mvp.delegate.ActivityMvpDelegateImpl;
  * Created by yangchj on 2016/7/7 0007.
  * email:yangchj@neusoft.com
  */
-public abstract class MvpSwipeBackActivity<V extends MvpView, P extends MvpPresenter<V>>
-        extends SwipeBackActivity implements ActivityMvpDelegateCallback<V, P>, MvpView {
+public abstract class MvpSwipeBackActivity<V extends MvpView, P extends MvpPresenter<V>,C extends BaseMvpComponent<V,P>>
+        extends SwipeBackActivity implements HasComponent<C>,ActivityMvpDelegateCallback<V, P>, MvpView {
     protected ActivityMvpDelegate mvpDelegate;
     protected P presenter;
     protected boolean retainInstance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        initializeInjector();
         super.onCreate(savedInstanceState);
         getMvpDelegate().onCreate(savedInstanceState);
     }
@@ -86,7 +90,11 @@ public abstract class MvpSwipeBackActivity<V extends MvpView, P extends MvpPrese
      * @return The {@link MvpPresenter} for this view
      */
     @NonNull
-    public abstract P createPresenter();
+    @Override
+    public final P createPresenter(){
+        presenter=getComponent().presenter();
+        return presenter;
+    }
 
     /**
      * Get the mvp delegate. This is internally used for creating presenter, attaching and detaching
@@ -113,13 +121,12 @@ public abstract class MvpSwipeBackActivity<V extends MvpView, P extends MvpPrese
 
     @NonNull
     @Override
-    public P getPresenter() {
+    public final P getPresenter() {
         return presenter;
     }
 
     @Override
-    public void setPresenter(@NonNull P presenter) {
-        this.presenter = presenter;
+    public final void setPresenter(@NonNull final P presenter) {
     }
 
     @NonNull
@@ -160,5 +167,11 @@ public abstract class MvpSwipeBackActivity<V extends MvpView, P extends MvpPrese
     @Override
     public final Object getNonMosbyLastCustomNonConfigurationInstance() {
         return getMvpDelegate().getNonMosbyLastCustomNonConfigurationInstance();
+    }
+
+    protected abstract void initializeInjector();
+
+    protected ActivityModule getActivityModule() {
+        return new ActivityModule(this);
     }
 }

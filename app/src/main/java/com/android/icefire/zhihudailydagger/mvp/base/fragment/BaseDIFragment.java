@@ -1,26 +1,26 @@
-package com.android.icefire.zhihudailydagger.mvp.base.activity;
+package com.android.icefire.zhihudailydagger.mvp.base.fragment;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-
 import com.android.icefire.zhihudailydagger.mvp.base.di.BaseComponent;
+import com.android.icefire.zhihudailydagger.mvp.base.di.HasComponent;
 
 /**
  * Created by yangchj on 2016/8/8 0008.
  * email:yangchj@neusoft.com
  */
-public abstract class BaseDIActivity<C extends BaseComponent> extends AppCompatActivity{
+public abstract class BaseDIFragment<C extends BaseComponent> extends Fragment {
     private C mComponent;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         injectDependencies();
     }
 
     private void injectDependencies() {
-        mComponent =getComponent();
+        mComponent =((HasComponent<C>) getActivity()).getComponent();
         inject();
     }
 

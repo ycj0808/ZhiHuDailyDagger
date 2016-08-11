@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.android.icefire.zhihudailydagger.R;
+import com.android.icefire.zhihudailydagger.mvp.base.di.BaseMvpComponent;
 import com.android.icefire.zhihudailydagger.support.swipeback.SwipeBackLayout;
 import com.android.icefire.zhihudailydagger.support.widget.FlatButton;
 import com.hannesdorfmann.mosby.mvp.MvpPresenter;
@@ -28,7 +29,7 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
  * Created by yangchj on 2016/7/7 0007.
  * email:yangchj@neusoft.com
  */
-public abstract class BaseSwipeBackMvpActivity<V extends MvpView,P extends MvpPresenter<V>> extends MvpSwipeBackActivity<V, P> {
+public abstract class BaseSwipeBackMvpActivity<V extends MvpView,P extends MvpPresenter<V>,C extends BaseMvpComponent<V,P>> extends MvpSwipeBackActivity<V, P,C> {
 
     protected SwipeBackLayout mSwipeBackLayout;
     protected View emptyLayout;
@@ -241,6 +242,4 @@ public abstract class BaseSwipeBackMvpActivity<V extends MvpView,P extends MvpPr
         super.onDestroy();
         dismissDialog();
     }
-
-
 }

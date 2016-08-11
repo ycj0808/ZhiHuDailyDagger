@@ -5,8 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
-
-import com.android.ice.zhihudaily.R;
+import com.android.icefire.zhihudailydagger.R;
 
 
 /**

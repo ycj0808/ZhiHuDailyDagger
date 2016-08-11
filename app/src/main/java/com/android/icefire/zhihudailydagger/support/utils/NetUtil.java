@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.android.ice.zhihudaily.App;
+import com.android.icefire.zhihudailydagger.app.ZhihuApp;
 
 /**
  * Created by yangchj on 2016/7/7 0007.
@@ -21,7 +21,7 @@ public class NetUtil {
      * @return
      */
     public static NetWorkType getNetworkType() {
-        ConnectivityManager connMgr = (ConnectivityManager) App.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connMgr = (ConnectivityManager) ZhihuApp.get().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null) {
             switch (networkInfo.getType()) {
@@ -39,7 +39,7 @@ public class NetUtil {
      * @return
      */
     public static boolean isNetworkConnected(){
-        ConnectivityManager mConnectivityManager= (ConnectivityManager) App.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager mConnectivityManager= (ConnectivityManager)ZhihuApp.get().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo mNetworkInfo=mConnectivityManager.getActiveNetworkInfo();
         if(mNetworkInfo!=null){
             return mNetworkInfo.isAvailable();
@@ -52,7 +52,7 @@ public class NetUtil {
      * @return
      */
     public static boolean isWifiConnected(){
-        ConnectivityManager mConnectivityManager= (ConnectivityManager) App.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager mConnectivityManager= (ConnectivityManager) ZhihuApp.get().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo mWiFiNetworkInfo=mConnectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
         if(mWiFiNetworkInfo!=null){
             return mWiFiNetworkInfo.isAvailable();

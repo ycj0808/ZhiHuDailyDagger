@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.android.icefire.zhihudailydagger.mvp.api.ZhihuService;
 import com.android.icefire.zhihudailydagger.mvp.base.di.ActivityScope;
+import com.android.icefire.zhihudailydagger.mvp.bean.NewsDetail;
 import com.android.icefire.zhihudailydagger.mvp.bean.NewsList;
 
 import javax.inject.Inject;
@@ -18,6 +19,7 @@ import rx.Observable;
 public class NewsDaoImpl implements NewsDao{
 
     private final ZhihuService mZhihuApi;
+
     @Inject
     public NewsDaoImpl(final ZhihuService api){
         mZhihuApi=api;
@@ -27,5 +29,17 @@ public class NewsDaoImpl implements NewsDao{
     @Override
     public Observable<NewsList> getLatestNews() {
         return mZhihuApi.getLatestNews();
+    }
+
+    @NonNull
+    @Override
+    public Observable<NewsList> getBeforeNews(String date) {
+        return mZhihuApi.getBeforeNews(date);
+    }
+
+    @NonNull
+    @Override
+    public Observable<NewsDetail> getNewsDetail(int id) {
+        return mZhihuApi.getNewsDetail(id);
     }
 }

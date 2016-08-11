@@ -16,10 +16,9 @@ import android.provider.MediaStore;
 import android.support.annotation.AttrRes;
 import android.util.TypedValue;
 
-import com.android.ice.zhihudaily.App;
+import com.android.icefire.zhihudailydagger.app.ZhihuApp;
 
 import java.util.List;
-
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
 
@@ -43,21 +42,21 @@ public class Utils {
 
 
 	public static int dip2px(int dipValue) {
-		float reSize = App.getInstance().getResources().getDisplayMetrics().density;
+		float reSize = ZhihuApp.get().getResources().getDisplayMetrics().density;
 		return (int) ((dipValue * reSize) + 0.5);
 	}
 
 	public static int px2dip(int pxValue) {
-		float reSize = App.getInstance().getResources().getDisplayMetrics().density;
+		float reSize = ZhihuApp.get().getResources().getDisplayMetrics().density;
 		return (int) ((pxValue / reSize) + 0.5);
 	}
 
 	public static float sp2px(int spValue) {
-		return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, spValue, App.getInstance().getResources().getDisplayMetrics());
+		return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, spValue, ZhihuApp.get().getResources().getDisplayMetrics());
 	}
 
 	public static int px2sp(float pxValue) {
-		final float fontScale = App.getInstance().getResources().getDisplayMetrics().scaledDensity;
+		final float fontScale = ZhihuApp.get().getResources().getDisplayMetrics().scaledDensity;
 		return (int) (pxValue / fontScale + 0.5f);
 	}
 

@@ -8,7 +8,7 @@ import retrofit2.Retrofit;
  * email:yangchj@neusoft.com
  */
 public class HttpManager {
-    private final static String BASE_URL = "http://news-at.zhihu.com/api/4/";
+    public final static String BASE_URL = "http://news-at.zhihu.com/api/4/";
     private static Retrofit.Builder retrofit;
     private static OkHttpClient mOkHttpClient;
 

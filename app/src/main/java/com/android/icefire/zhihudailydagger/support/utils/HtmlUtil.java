@@ -1,6 +1,6 @@
 package com.android.icefire.zhihudailydagger.support.utils;
 
-import com.android.ice.zhihudaily.mvp.bean.NewsDetail;
+import com.android.icefire.zhihudailydagger.mvp.bean.NewsDetail;
 
 import java.util.List;
 

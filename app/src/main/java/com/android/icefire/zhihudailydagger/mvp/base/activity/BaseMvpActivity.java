@@ -196,7 +196,6 @@ public abstract class BaseMvpActivity<V extends MvpView,P extends MvpPresenter<V
     }
 
     protected ProgressDialog mDialog;
-
     protected void showLoadingDialog(String title,String msg){
         if(mDialog!=null){
             mDialog.dismiss();

@@ -2,7 +2,11 @@ package com.android.icefire.zhihudailydagger.mvp.base.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
+
+import com.android.icefire.zhihudailydagger.mvp.base.di.ActivityModule;
 import com.android.icefire.zhihudailydagger.mvp.base.di.BaseMvpComponent;
+import com.android.icefire.zhihudailydagger.mvp.base.di.HasComponent;
 import com.hannesdorfmann.mosby.mvp.MvpPresenter;
 import com.hannesdorfmann.mosby.mvp.MvpView;
 import com.hannesdorfmann.mosby.mvp.delegate.ActivityMvpDelegate;
@@ -14,7 +18,7 @@ import com.hannesdorfmann.mosby.mvp.delegate.ActivityMvpDelegateImpl;
  * email:yangchj@neusoft.com
  */
 public abstract class BaseDIMvpActivity<V extends MvpView, P extends MvpPresenter<V>,C extends BaseMvpComponent<V,P>>
-        extends BaseDIActivity<C> implements ActivityMvpDelegateCallback<V, P>, MvpView {
+        extends AppCompatActivity implements HasComponent<C>,ActivityMvpDelegateCallback<V, P>, MvpView {
 
     protected ActivityMvpDelegate mvpDelegate;
     protected P presenter;
@@ -22,14 +26,10 @@ public abstract class BaseDIMvpActivity<V extends MvpView, P extends MvpPresente
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        initializeInjector();
         super.onCreate(savedInstanceState);
         getMvpDelegate().onCreate(savedInstanceState);
     }
-    /**
-     * inject dependencies.
-     * Normally implementation should be {@code getComponent().inject(this)}
-     */
-    protected abstract void inject();
 
     @Override
     protected void onDestroy() {
@@ -148,5 +148,11 @@ public abstract class BaseDIMvpActivity<V extends MvpView, P extends MvpPresente
     @Override
     public final Object getNonMosbyLastCustomNonConfigurationInstance() {
         return getMvpDelegate().getNonMosbyLastCustomNonConfigurationInstance();
+    }
+
+    protected abstract void initializeInjector();
+
+    protected ActivityModule getActivityModule() {
+        return new ActivityModule(this);
     }
 }

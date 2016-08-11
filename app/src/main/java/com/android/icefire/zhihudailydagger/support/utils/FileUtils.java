@@ -2,9 +2,8 @@ package com.android.icefire.zhihudailydagger.support.utils;
 
 import android.os.Environment;
 
-import com.android.ice.zhihudaily.App;
+import com.android.icefire.zhihudailydagger.app.ZhihuApp;
 import com.orhanobut.logger.Logger;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -20,7 +19,7 @@ public class FileUtils {
     public static final String baseDicectory = Environment.getExternalStorageDirectory() + File.separator;
 
     public static String getDownloadDic() {
-        String downloadDic = baseDicectory + App.getInstance().getPackageName();
+        String downloadDic = baseDicectory + ZhihuApp.get().getPackageName();
         try {
             File dicFile = new File(downloadDic);
             if (!dicFile.exists()) {

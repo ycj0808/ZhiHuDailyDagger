@@ -12,9 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-
-import com.android.ice.zhihudaily.R;
-
+import com.android.icefire.zhihudailydagger.R;
 import java.util.ArrayList;
 import java.util.List;
 
